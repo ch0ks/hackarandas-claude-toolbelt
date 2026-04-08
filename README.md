@@ -130,7 +130,12 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the quality bar and submission checkl
 
 ## 👤 Author
 
-Adrian Puente Z. ([@ch0ks](https://github.com/ch0ks)) — [hackarandas.com](https://hackarandas.com)
+**Adrian Puente Z.**
+
+[![GitHub](https://img.shields.io/badge/GitHub-ch0ks-181717?logo=github)](https://github.com/ch0ks)
+[![X](https://img.shields.io/badge/X-@ch0ks-000000?logo=x)](https://x.com/ch0ks)
+[![X](https://img.shields.io/badge/X-@hackarandas-000000?logo=x)](https://x.com/hackarandas)
+[![Web](https://img.shields.io/badge/Web-hackarandas.com-0a0a0a?logo=google-chrome)](https://hackarandas.com)
 
 ## 📄 License
 
