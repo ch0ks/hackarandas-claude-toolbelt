@@ -125,6 +125,19 @@ Rules are behavioral guidelines applied globally to all sessions where this tool
 
 ---
 
+## 📖 Example Output
+
+Real pipeline output from a review of [Apache Azkaban](https://github.com/azkaban/azkaban):
+
+| Report | What it shows |
+|--------|---------------|
+| [Security Code Review](https://github.com/RozulIO/azkaban/blob/security/vibe-patch-20260406/security-review/security-code-review-report-20260406.md) | 15 findings, CWE mappings, taint analysis, risk matrix, compliance impact |
+| [Security Vibe Patch](https://github.com/RozulIO/azkaban/blob/security/vibe-patch-20260406/security-review/security-vibe-patch-report-20260406.md) | 4 `[BLOCK]` findings processed, 2 patched, 2 skipped with manual remediation guidance |
+
+See [docs/example-security-review.md](docs/example-security-review.md) for full context.
+
+---
+
 ## 🤝 Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the quality bar and submission checklist. Use the [skill submission issue template](.github/ISSUE_TEMPLATE/skill-submission.md) to propose new assets.
