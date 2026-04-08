@@ -2,6 +2,9 @@
 
 A curated set of Claude Code rules, commands, and skills for security engineering — by [Adrian Puente Z. (@ch0ks)](https://hackarandas.com).
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Validate Skills](https://github.com/ch0ks/hackarandas-claude-toolbelt/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/ch0ks/hackarandas-claude-toolbelt/actions/workflows/validate-skills.yml)
+
 ---
 
 ## 📦 What's in here

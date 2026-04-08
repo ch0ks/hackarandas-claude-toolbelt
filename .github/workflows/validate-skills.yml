@@ -1,0 +1,78 @@
+name: Validate Skills
+
+on:
+  push:
+    paths:
+      - "skills/**/SKILL.md"
+      - "commands/*.md"
+  pull_request:
+    paths:
+      - "skills/**/SKILL.md"
+      - "commands/*.md"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate SKILL.md frontmatter
+        run: |
+          python3 << 'EOF'
+          import os, re, sys
+
+          REQUIRED = ["name", "description", "allowed-tools", "author"]
+          errors = []
+
+          for root, _, files in os.walk("skills"):
+              for f in files:
+                  if f != "SKILL.md":
+                      continue
+                  path = os.path.join(root, f)
+                  content = open(path).read()
+                  m = re.match(r"^---\n(.*?)\n---", content, re.DOTALL)
+                  if not m:
+                      errors.append(f"{path}: missing frontmatter block")
+                      continue
+                  fm = m.group(1)
+                  for field in REQUIRED:
+                      if not re.search(rf"^{field}:\s*\S", fm, re.MULTILINE):
+                          errors.append(f"{path}: missing or empty field '{field}'")
+
+          if errors:
+              print("❌ SKILL.md validation failed:")
+              for e in errors:
+                  print(f"  {e}")
+              sys.exit(1)
+
+          skill_count = sum(
+              1 for root, _, files in os.walk("skills") if "SKILL.md" in files
+          )
+          print(f"✅ {skill_count} skill(s) validated — all required fields present")
+          EOF
+
+      - name: Validate command author attribution
+        run: |
+          python3 << 'EOF'
+          import os, sys
+
+          errors = []
+
+          for f in sorted(os.listdir("commands")):
+              if not f.endswith(".md"):
+                  continue
+              path = os.path.join("commands", f)
+              first_line = open(path).readline().strip()
+              if not first_line.startswith("<!-- author:"):
+                  errors.append(f"{path}: first line must be an author comment")
+
+          if errors:
+              print("❌ Command attribution check failed:")
+              for e in errors:
+                  print(f"  {e}")
+              sys.exit(1)
+
+          cmd_count = len([f for f in os.listdir("commands") if f.endswith(".md")])
+          print(f"✅ {cmd_count} command(s) validated — author attribution present")
+          EOF
