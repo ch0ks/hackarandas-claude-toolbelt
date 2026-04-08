@@ -1,4 +1,4 @@
-# 🧰 Hackarandas Claude Toolbelt
+# 🧰 Hackarandas Claude Security Toolbelt
 
 A curated set of Claude Code rules, commands, and skills for security engineering — by [Adrian Puente Z. (@ch0ks)](https://hackarandas.com).
 
