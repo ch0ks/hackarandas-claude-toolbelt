@@ -1,10 +1,10 @@
-# hackarandas-claude-toolbelt
+# 🧰 Hackarandas Claude Toolbelt
 
 A curated set of Claude Code rules, commands, and skills for security engineering — by [Adrian Puente Z. (@ch0ks)](https://hackarandas.com).
 
 ---
 
-## What's in here
+## 📦 What's in here
 
 | Type | Location | What it does |
 |------|----------|--------------|
@@ -14,11 +14,11 @@ A curated set of Claude Code rules, commands, and skills for security engineerin
 
 ---
 
-## Flagship: Security Review Workflow
+## 🛡️ Flagship: Security Review Workflow
 
 Four skills and commands that form a complete, auditable security review pipeline. Run them in sequence on any repository.
 
-### Stage 1 — Setup
+### ⚡ Stage 1 — Setup
 **`/security-semgrep-setup`** (command)
 
 Checks for Semgrep, installs it if missing (Homebrew → pip → pip --user), logs in to Semgrep Pro, enables the Pro engine, and runs a local scan. Saves a dated JSON artifact to `security-review/semgrep-results-YYYYMMDD.json` for downstream stages.
@@ -27,7 +27,7 @@ Checks for Semgrep, installs it if missing (Homebrew → pip → pip --user), lo
 /security-semgrep-setup
 ```
 
-### Stage 2 — Code Review
+### 🔍 Stage 2 — Code Review
 **`security-code-review`** (skill)
 
 Consumes the Semgrep JSON artifact, runs interprocedural taint analysis, and performs manual review across OWASP Top 10 categories (injection, auth, crypto, secrets, SSRF, and more). Writes a formal Security Code Review Report with CWE mappings, evidence, and remediation guidance to `security-review/security-code-review-report-YYYYMMDD.md`.
@@ -36,7 +36,7 @@ Consumes the Semgrep JSON artifact, runs interprocedural taint analysis, and per
 /security-code-review
 ```
 
-### Stage 3 — IaC-Grounded Triage
+### 📊 Stage 3 — IaC-Grounded Triage
 **`security-iac-triage`** (skill)
 
 Reads the code review report and your IaC files (Terraform, Kubernetes, Docker Compose, CloudFormation, Azure Pipelines) to extract deployment facts. Scores each finding with CVSS 4.0, justifying every vector against observable infrastructure evidence. Appends the triage section to the existing report. Supports three scoring postures: Strict, Standard, and Lenient.
@@ -45,7 +45,7 @@ Reads the code review report and your IaC files (Terraform, Kubernetes, Docker C
 /security-iac-triage
 ```
 
-### Stage 4 — Vibe Security Patching
+### 🩹 Stage 4 — Vibe Security Patching
 **`security-vibe-patch`** (skill)
 
 Reads the code review report and generates minimal, precise remediation patches using the [Vibe Security Patching](https://hackarandas.com) methodology. One commit per finding. Skips findings where a correct fix cannot be determined statically (LOW confidence). Writes a Security Vibe Patch Report to `security-review/`, then opens a pull request with a structured security PR description.
@@ -66,7 +66,7 @@ security-review/
 
 ---
 
-## Install
+## 🚀 Install
 
 Clone this repo and copy assets to your global Claude config directory.
 
@@ -87,9 +87,9 @@ Rules and commands take effect immediately in new Claude Code sessions. Skills a
 
 ---
 
-## All Assets
+## 📋 All Assets
 
-### Skills
+### 🎯 Skills
 
 | Skill | Description |
 |-------|-------------|
@@ -97,14 +97,14 @@ Rules and commands take effect immediately in new Claude Code sessions. Skills a
 | `security-iac-triage` | CVSS 4.0 triage grounded in IaC deployment context |
 | `security-vibe-patch` | Minimal security patches, one commit per finding, PR |
 
-### Commands
+### ⌨️ Commands
 
 | Command | Description |
 |---------|-------------|
-| `/security-semgrep-setup` | Install Semgrep Pro and run a local scan |
-| `/sessions` | List all Claude Code sessions with resume commands |
+| `/security-semgrep-setup` | Install Semgrep Pro and run a local scan (macOS + Linux) |
+| `/sessions` | List all Claude Code sessions with resume commands (macOS + Linux) |
 
-### Rules
+### 📜 Rules
 
 Rules are behavioral guidelines applied globally to all sessions where this toolbelt is deployed.
 
@@ -122,10 +122,16 @@ Rules are behavioral guidelines applied globally to all sessions where this tool
 
 ---
 
-## Author
+## 🤝 Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the quality bar and submission checklist. Use the [skill submission issue template](.github/ISSUE_TEMPLATE/skill-submission.md) to propose new assets.
+
+---
+
+## 👤 Author
 
 Adrian Puente Z. ([@ch0ks](https://github.com/ch0ks)) — [hackarandas.com](https://hackarandas.com)
 
-## License
+## 📄 License
 
 MIT — see [LICENSE](LICENSE).
