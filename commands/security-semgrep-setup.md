@@ -1,5 +1,5 @@
 <!-- author: Adrian Puente Z. (@ch0ks) — www.hackarandas.com -->
-Check if Semgrep is installed and working. If not, install it for macOS using the best available method. Then log in to Semgrep Pro, enable the Pro engine, and run a local Pro scan in the current directory.
+Check if Semgrep is installed and working. If not, install it using the best available method. Then log in to Semgrep Pro, enable the Pro engine, and run a local Pro scan in the current directory.
 
 ---
 
@@ -14,7 +14,7 @@ If this fails, proceed to Step 2.
 
 ---
 
-## Step 2 — Install Semgrep (macOS only)
+## Step 2 — Install Semgrep
 
 Try each method in order. Move to the next only if the current one fails.
 
@@ -83,16 +83,16 @@ If this also fails, print the following and stop:
 ❌ Semgrep installation failed.
 
 Tried:
-  1. brew install semgrep       — brew not available or failed
-  2. python3 -m pip install     — failed
-  3. python3 -m pip install --user — failed
+  1. brew install semgrep            — brew not available or failed
+  2. python3 -m pip install semgrep  — failed
+  3. python3 -m pip install --user   — failed
 
-Manual options:
-  - Install Homebrew first: https://brew.sh
-  - Install via npm:        npm install -g @semgrep/semgrep
-  - See full docs:          https://semgrep.dev/docs/getting-started/
+Manual options (macOS):   brew install semgrep
+Manual options (Linux):   pipx install semgrep
+Manual options (any):     npm install -g @semgrep/semgrep
+Full docs:                https://semgrep.dev/docs/getting-started/
 
-Skipping Semgrep Pro setup. Run /semgrep-setup again after resolving the install issue.
+Skipping Semgrep Pro setup. Run /security-semgrep-setup again after resolving the install issue.
 ```
 
 Do NOT proceed further if Semgrep could not be installed.
