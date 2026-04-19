@@ -17,7 +17,7 @@ docs/       → Supporting repository documentation, guides, examples, and curat
 
 ### `rules/`
 
-Each `private_*.md` file is a behavioral guideline that Claude reads at session start. These are **already deployed** to `~/.claude/rules/` — edits here must be synchronized manually.
+Each `*.md` file is a behavioral guideline that Claude reads at session start. These are **already deployed** to `~/.claude/rules/` — edits here must be synchronized manually.
 
 Current rules: `beads` (task tracking via `bd`), `ci-cd`, `code-review`, `documentation`, `git`, `python`, `sast-rules`, `security`, `testing`.
 
