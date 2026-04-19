@@ -5,10 +5,12 @@ on:
     paths:
       - "skills/**/SKILL.md"
       - "commands/*.md"
+      - "rules/*.md"
   pull_request:
     paths:
       - "skills/**/SKILL.md"
       - "commands/*.md"
+      - "rules/*.md"
 
 jobs:
   validate:
@@ -75,4 +77,30 @@ jobs:
 
           cmd_count = len([f for f in os.listdir("commands") if f.endswith(".md")])
           print(f"✅ {cmd_count} command(s) validated — author attribution present")
+          EOF
+
+      - name: Validate rule filenames
+        run: |
+          python3 << 'EOF'
+          import os, sys
+
+          errors = []
+
+          for f in sorted(os.listdir("rules")):
+              if not f.endswith(".md"):
+                  continue
+              if f.startswith("private_"):
+                  errors.append(f"rules/{f}: has disallowed private_ prefix")
+              path = os.path.join("rules", f)
+              if os.path.getsize(path) == 0:
+                  errors.append(f"{path}: file is empty")
+
+          if errors:
+              print("❌ Rule validation failed:")
+              for e in errors:
+                  print(f"  {e}")
+              sys.exit(1)
+
+          rule_count = len([f for f in os.listdir("rules") if f.endswith(".md")])
+          print(f"✅ {rule_count} rule(s) validated — no private_ prefix, no empty files")
           EOF
