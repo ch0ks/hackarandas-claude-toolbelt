@@ -1,6 +1,4 @@
-<!-- author: Adrian Puente Z. (@ch0ks) — www.hackarandas.com -->
-List all Claude Code sessions across all projects, sorted by most recent. Show project context, date, and the exact resume command for each session.
-
+List all Claude Code sessions across all projects, sorted by most recent. Show project context, date, and the exact resume command for each session. Author: Adrian Puente Z. (@ch0ks) — www.hackarandas.com -->
 ---
 
 ## Step 1 — Collect All Sessions
