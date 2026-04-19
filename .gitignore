@@ -15,3 +15,6 @@
 # Security review output
 # (produced by skills in target repos — should never live here)
 security-review/
+
+# Social preview export — source SVG is kept, PNG is a build artifact
+docs/social-preview.png
